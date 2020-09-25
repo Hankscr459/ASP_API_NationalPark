@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace API.Models.Repository.IRepository
 {
-    public interface INationalRepository
+    public interface INationalParkRepository
     {
         ICollection<NationalPark> GetNationalParks();
         NationalPark GetNationalPark(int nationalParkId);
@@ -10,6 +10,7 @@ namespace API.Models.Repository.IRepository
         bool NationalParkExists(int id);
         bool CreateNationalPark(NationalPark nationalPark);
         bool UpdateNationalPark(NationalPark nationalPark);
+        bool DeleteNationalPark(NationalPark nationalPark);
         bool Save();
     }
 }
