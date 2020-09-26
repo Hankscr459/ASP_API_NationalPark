@@ -52,7 +52,7 @@ namespace API
                             Url = new Uri("https://en.wikipedia.org/wiki/MIT License")
                         },
                         License = new Microsoft.OpenApi.Models.OpenApiLicense()
-                        {
+                        { 
                             Name = "MIT License",
                             Url = new Uri("https://en.wikipedia.org/wiki/MIT License")
                         }

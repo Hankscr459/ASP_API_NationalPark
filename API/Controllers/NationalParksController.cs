@@ -3,11 +3,13 @@ using API.Models;
 using API.Models.Dtos;
 using API.Models.Repository.IRepository;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers {
     [Route ("api/[controller]")]
     [ApiController]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     #pragma warning disable CS1591    // Missing XML comment for publicly visible type or number
     public class NationalParksController : Controller {
         private INationalParkRepository _npRepo;
@@ -23,6 +25,8 @@ namespace API.Controllers {
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(List<NationalParkDto>))]
+        [ProducesResponseType(400)]
         public IActionResult GetNationalParks()
         {
             var objList = _npRepo.GetNationalParks();
@@ -42,6 +46,10 @@ namespace API.Controllers {
         /// <param name="nationalParkId">The Id of the national Park</param>
         /// <returns></returns>
         [HttpGet("{nationalParkId:int}", Name = "GetNationalPark")]
+        [ProducesResponseType(200, Type = typeof(NationalParkDto))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesDefaultResponseType]
         public IActionResult GetNationalPark(int nationalParkId)
         {
             var obj = _npRepo.GetNationalPark(nationalParkId);
@@ -54,6 +62,10 @@ namespace API.Controllers {
         }
 
         [HttpPost]
+        [ProducesResponseType(201, Type = typeof(NationalParkDto))]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult CreateNationalPark([FromBody] NationalParkDto nationalParkDto)
         {
             if (nationalParkDto == null)
@@ -78,6 +90,9 @@ namespace API.Controllers {
         }
 
         [HttpPatch("{nationalParkId:int}", Name = "UpdateNationalPark")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult UpdateNationalPark(int nationalParkId,[FromBody] NationalParkDto nationalParkDto)
         {
             if (nationalParkDto == null || nationalParkId!=nationalParkDto.Id)
@@ -97,6 +112,10 @@ namespace API.Controllers {
         }
 
         [HttpDelete("{nationalParkId:int}", Name = "DeleteNationalPark")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult DeleteNationalPark(int nationalParkId)
         {
             if (!_npRepo.NationalParkExists(nationalParkId))
