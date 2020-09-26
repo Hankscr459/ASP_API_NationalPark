@@ -43,7 +43,19 @@ namespace API
                     new Microsoft.OpenApi.Models.OpenApiInfo() 
                     {
                         Title = "Parky API",
-                        Version = "1"
+                        Version = "1",
+                        Description = "Parky API",
+                        Contact = new Microsoft.OpenApi.Models.OpenApiContact()
+                        {
+                            Email = "Hank123@gmail.com",
+                            Name = "Andrew Hank",
+                            Url = new Uri("https://en.wikipedia.org/wiki/MIT License")
+                        },
+                        License = new Microsoft.OpenApi.Models.OpenApiLicense()
+                        {
+                            Name = "MIT License",
+                            Url = new Uri("https://en.wikipedia.org/wiki/MIT License")
+                        }
                     });
                 var xmlCommentFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var cmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentFile);
