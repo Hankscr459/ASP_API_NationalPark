@@ -9,6 +9,7 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    #pragma warning disable CS1591    // Missing XML comment for publicly visible type or number
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

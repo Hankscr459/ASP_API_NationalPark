@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 namespace API.Models.Repository.IRepository
 {
+    #pragma warning disable CS1591    // Missing XML comment for publicly visible type or number
     public interface INationalParkRepository
     {
         ICollection<NationalPark> GetNationalParks();

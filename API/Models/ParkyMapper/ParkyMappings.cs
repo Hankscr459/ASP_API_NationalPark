@@ -3,6 +3,7 @@ using AutoMapper;
 
 namespace API.Models.ParkyMapper
 {
+    #pragma warning disable CS1591    // Missing XML comment for publicly visible type or number
     public class ParkyMappings : Profile
     {
         public ParkyMappings()

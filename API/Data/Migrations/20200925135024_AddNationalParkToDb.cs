@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
+    #pragma warning disable CS1591    // Missing XML comment for publicly visible type or number
     public partial class AddNationalParkToDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

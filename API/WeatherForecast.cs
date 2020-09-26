@@ -2,6 +2,7 @@ using System;
 
 namespace API
 {
+    #pragma warning disable CS1591    // Missing XML comment for publicly visible type or number
     public class WeatherForecast
     {
         public DateTime Date { get; set; }

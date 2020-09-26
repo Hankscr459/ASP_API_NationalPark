@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers {
     [Route ("api/[controller]")]
     [ApiController]
+    #pragma warning disable CS1591    // Missing XML comment for publicly visible type or number
     public class NationalParksController : Controller {
         private INationalParkRepository _npRepo;
         private readonly IMapper _mapper;
@@ -17,6 +18,10 @@ namespace API.Controllers {
         }
 
 
+        /// <summary>
+        /// Get list of national parks.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetNationalParks()
         {
@@ -31,6 +36,11 @@ namespace API.Controllers {
             return Ok(objDto);
         }
 
+        /// <summary>
+        /// Get list of national parks.
+        /// </summary>
+        /// <param name="nationalParkId">The Id of the national Park</param>
+        /// <returns></returns>
         [HttpGet("{nationalParkId:int}", Name = "GetNationalPark")]
         public IActionResult GetNationalPark(int nationalParkId)
         {

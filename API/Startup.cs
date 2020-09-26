@@ -16,9 +16,12 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using AutoMapper;
 using API.Models.ParkyMapper;
+using System.Reflection;
+using System.IO;
 
 namespace API
 {
+    #pragma warning disable CS1591    // Missing XML comment for publicly visible type or number
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -42,6 +45,9 @@ namespace API
                         Title = "Parky API",
                         Version = "1"
                     });
+                var xmlCommentFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var cmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentFile);
+                opts.IncludeXmlComments(cmlCommentsFullPath);
             });
             services.AddControllers();
         }

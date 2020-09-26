@@ -9,8 +9,10 @@ using Microsoft.Extensions.Logging;
 
 namespace API
 {
+    #pragma warning disable CS1591    // Missing XML comment for publicly visible type or number
     public class Program
     {
+        #pragma warning disable CS1591    // Missing XML comment for publicly visible type or number
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

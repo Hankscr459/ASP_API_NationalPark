@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace API.Models
 {
+    #pragma warning disable CS1591    // Missing XML comment for publicly visible type or number
     public class NationalPark
     {
         [Key]

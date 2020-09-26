@@ -13,9 +13,10 @@ namespace API.Migrations
     [Migration("20200925135024_AddNationalParkToDb")]
     partial class AddNationalParkToDb
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+    #pragma warning disable CS1591    // Missing XML comment for publicly visible type or number
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)  
         {
-#pragma warning disable 612, 618
+    #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
